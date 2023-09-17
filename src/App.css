@@ -1,6 +1,11 @@
 .App {
-  text-align: center;
   width: 650px;
-  border: 1px solid lightgrey;
   margin: 50px 0 0 50px;
+}
+
+.App .innerApp {
+  width: 600px;
+  border: 1px solid lightgrey;
+  margin: 25px;
+  padding: 10px;
 }

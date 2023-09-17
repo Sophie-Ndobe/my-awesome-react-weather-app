@@ -7,7 +7,7 @@ export default function SearchCity() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert(`The city is ${city}`);
+    return city;
   }
 
   function updateCity(event) {
@@ -22,8 +22,8 @@ export default function SearchCity() {
           placeholder="Enter a city name..."
           onChange={updateCity}
         ></input>
-        <button className="Search">Search</button>
-        <button>Current</button>
+        <button className="Search btn btn-primary ms-1 mb-2">Search</button>
+        <button className="btn btn-success ms-1 mb-2">Current</button>
       </form>
     </div>
   );
