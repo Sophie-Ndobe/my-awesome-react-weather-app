@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-
 import "./SearchCity.css";
+import WeatherUpdate from "./WeatherUpdate";
 
 export default function SearchCity() {
-  let [city, setCity] = useState(" ");
+  const [city, setCity] = useState(" ");
 
   function handleSubmit(event) {
     event.preventDefault();
     return city;
   }
 
+  <WeatherUpdate city={`${city}`} />;
+
   function updateCity(event) {
     setCity(event.target.value);
   }
-
   return (
     <div className="SearchCity">
       <form onSubmit={handleSubmit}>
