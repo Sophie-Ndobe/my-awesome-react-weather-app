@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./SearchCity.css";
 import WeatherUpdate from "./WeatherUpdate";
+import Forecast from "./Forecast";
 
 export default function SearchCity() {
   const [city, setCity] = useState(" ");
@@ -46,6 +47,8 @@ export default function SearchCity() {
         description={weather.description}
         icon={weather.icon}
       />
+      <br />
+      <Forecast />
     </div>
   );
 
