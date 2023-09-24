@@ -1,35 +1,42 @@
-import React, { useState } from "react";
-import axios from "axios";
-import SearchCity from "./SearchCity";
+import React from "react";
+
 import "./WeatherUpdate.css";
 
-export default function WeatherUpdate(prop) {
-  const [weather, setWeather] = useState(" ");
+export default function WeatherUpdate(props) {
+  let temperature = Math.round(props.temp);
 
-  function displayWeather(response) {
-    setWeather({
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-    });
+  let date = new Date();
+  let hours = date.getHours();
+
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
 
-  function apiCall() {
-    let city = prop.city;
-    console.log(city);
-    let apiKey = "8342a5044534040e24d2802ce4fcc6ac";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(`${apiUrl}`).then(displayWeather);
+  let minutes = date.getMinutes();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
   }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
 
   return (
     <div className="WeatherUpdate">
       <h2>Lisbon</h2>
       <ul>
-        <li>Sunday 15:56</li>
-        <li>{weather.description} </li>
+        <li>
+          {day} {hours}:{minutes}
+        </li>
+        <li>{props.description} </li>
       </ul>
 
       <div className="row">
@@ -40,13 +47,13 @@ export default function WeatherUpdate(prop) {
               alt=" "
               className="me-2"
             />
-            <h1>{weather.temperature}25</h1>
+            <h1>{temperature}</h1>
           </div>
         </div>
         <div className="col">
           <ul>
-            <li>Humidity: {weather.humidity}%</li>
-            <li>Windy: {weather.wind}km/h</li>
+            <li>Humidity: {props.humidity}%</li>
+            <li>Windy: {props.wind}km/h</li>
           </ul>
         </div>
       </div>
