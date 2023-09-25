@@ -23,6 +23,9 @@ export default function SearchCity() {
     let apiKey = "8342a5044534040e24d2802ce4fcc6ac";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(displayWeather);
+
+    let forecastApiUrl = `api.openweathermap.org/data/2.5/forecast/daily?q=${city}&units=metric&cnt=5&appid=${apiKey}`;
+    axios.get(`${forecastApiUrl}`).then(displayForecast);
   }
 
   function updateCity(event) {
@@ -48,8 +51,7 @@ export default function SearchCity() {
         icon={weather.icon}
       />
       <br />
-      <Forecast />
+      <Forecast city={city} />
     </div>
   );
-
 }
