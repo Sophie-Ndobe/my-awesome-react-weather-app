@@ -43,7 +43,7 @@ export default function WeatherUpdate(props) {
         <div className="col">
           <div className="d-flex">
             <span>
-              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/{props.icon}.png" />
+              <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" />
             </span>
             <h1>{temperature}</h1>
           </div>
