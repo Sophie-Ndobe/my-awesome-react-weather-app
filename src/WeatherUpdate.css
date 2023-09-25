@@ -1,16 +1,15 @@
 .WeatherUpdate h1 {
-  font-size: 70px;
+  font-size: 60px;
 }
 .WeatherUpdate h2 {
   font-size: 40px;
 }
 
 .WeatherUpdate img {
-  width: 90px;
+  width: 75px;
 }
 
 .WeatherUpdate ul {
   padding: 0;
   list-style: none;
 }
-

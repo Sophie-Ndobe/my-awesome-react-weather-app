@@ -3,6 +3,7 @@ import axios from "axios";
 import "./SearchCity.css";
 import WeatherUpdate from "./WeatherUpdate";
 import Forecast from "./Forecast";
+import CitiesPanel from "./CitiesPanel";
 
 export default function SearchCity() {
   const [city, setCity] = useState(" ");
@@ -34,6 +35,7 @@ export default function SearchCity() {
 
   return (
     <div className="SearchCity">
+      <CitiesPanel />
       <form onSubmit={handleSubmit}>
         <input
           type="Search"
