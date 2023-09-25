@@ -11,22 +11,23 @@ export default function SearchCity() {
 
   function displayWeather(response) {
     setWeather({
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      description: response.data.condition.description,
+      icon: response.data.temperature.icon,
+      apiCity: response.data.city,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "8342a5044534040e24d2802ce4fcc6ac";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiKey = "2c13e0a2b6fe347b0421bb02eef2o43t";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(displayWeather);
 
-    let forecastApiUrl = `api.openweathermap.org/data/2.5/forecast/daily?q=${city}&units=metric&cnt=5&appid=${apiKey}`;
-    axios.get(`${forecastApiUrl}`).then(displayForecast);
+    // let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    // axios.get(`${forecastApiUrl}`).then(displayForecast);
   }
 
   function updateCity(event) {
@@ -51,6 +52,7 @@ export default function SearchCity() {
         wind={weather.wind}
         description={weather.description}
         icon={weather.icon}
+        city={weather.apiCity}
       />
       <br />
       <Forecast city={city} />

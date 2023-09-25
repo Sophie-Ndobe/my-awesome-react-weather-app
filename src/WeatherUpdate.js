@@ -31,7 +31,7 @@ export default function WeatherUpdate(props) {
 
   return (
     <div className="WeatherUpdate">
-      <h2>Lisbon</h2>
+      <h2>{props.city}Lisbon</h2>
       <ul>
         <li>
           {day} {hours}:{minutes}
@@ -42,11 +42,9 @@ export default function WeatherUpdate(props) {
       <div className="row">
         <div className="col">
           <div className="d-flex">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt=" "
-              className="me-2"
-            />
+            <span>
+              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/{props.icon}.png" />
+            </span>
             <h1>{temperature}</h1>
           </div>
         </div>
