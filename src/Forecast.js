@@ -3,13 +3,12 @@ import React from "react";
 import "./Forecast.css";
 
 export default function Forecast(props) {
-
-    let forecastOne = Math.round(props.tempOne)
+  let forecastOne = Math.round(props.tempOne);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   function forecastData() {
     let date = new Date();
     let day = days[date.getDay()];
-    return day
+    return day;
   }
 
   return (
